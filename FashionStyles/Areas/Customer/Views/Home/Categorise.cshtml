@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FashionStyles.Models.Product>
+
+
+
+<section class="latest-product-area">
+    <div class="container">
+        <div class="row product-btn d-flex justify-content-end align-items-end" style="background-image:url(././~/wwwroot/images/CategoryHeader.jpg)" ;>
+            <!-- Section Tittle -->
+           
+            <div class="col-8">
+                <div class="section-tittle mb-30">
+                    <h2>Categroise</h2>
+
+
+                </div>
+            </div>
+        </div>
+       
+
+        <!-- Nav Card -->
+        <div class="tab-content" id="nav-tabContent">
+            <!-- card one -->
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-product mb-60">
+                                <div class="product-img">
+                                    <img src="@item.ImageUrl" style="width:362px; height:392px;" alt="">
+                                    <div class="new-product">
+                                        <span>New</span>
+                                    </div>
+                                </div>
+                                <div class="product-caption">
+                                    <div class="product-ratting">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star low-star"></i>
+
+                                    </div>
+                                    <h4><a href="#">@item.Title</a></h4>
+                                    <div class="price">
+                                        <ul>
+                                            <li>$@item.ListPrice</li>
+                                            <li class="discount">$@item.Price</li>
+                                        </ul>
+                                        <div>
+                                            <a asp-action="Details" class="genric-btn primary col-12" asp-route-id="@item.Id">Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
